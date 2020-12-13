@@ -18,7 +18,7 @@ for i in range(len(data)):
     for j in range(i+1,len(data)):
         for k in range(j+1,len(data)):
             suma = int(data[i]) + int(data[j]) + int(data[k]) - 2020
-            # print(suma)
+            print(suma)
             if suma == 0:
                 print(int(data[i]) * int(data[j]) * int(data[k]))
                 print(int(data[i]) , int(data[j]) , int(data[k]))
