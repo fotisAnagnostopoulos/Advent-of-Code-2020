@@ -34,7 +34,7 @@ for registry in data:
         if new_dict['hcl'][0] == '#' and len(new_dict['hcl'][1:]) == 6:
             valid = True
             for char in new_dict['hcl'][1:]:
-                if not(char in hcl_chars):
+                if not(char in hcl_chars): 
                     valid = False
         else:
             valid = False
