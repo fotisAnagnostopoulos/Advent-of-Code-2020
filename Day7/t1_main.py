@@ -1,106 +1,24 @@
 with open('data.txt') as fp:
-    datas = fp.read()
-#each testcase is seprated by '\n. Also the last "\n" character is removed, as it will cause problems later
-data = datas.strip('\n').split('\n')
-count = 0
-bags_set = {'shiny gold'}
-test_list = []
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-for rule in data:
-    for bag_color in list(bags_set):
-        #search for a color that contains "shiny gold" bag, or other bags that contain the latter
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            ind2 = rule.find(" bag")
-            #adds the found color to the set of colors containing directly or indirectly "shiny gold" bag
-            bags_set.add(rule[0:ind2])
-print(bags_set)
-# print(stop)
-
-for rule in data:
-    for bag_color in list(bags_set):
-        ind = rule.find(bag_color)
-        # print(rule)
-        if ind != -1:
-            if bag_color != "shiny gold":
-            # print('found ',bag_color, " bag" )
-            # print(rule[ind-2])
-            # num = int(rule[ind-2])
-                count += 1
-                break
-            elif ind != 0:
-                count += 1
-                break
-            # elif bag_color != "shiny gold":
-            #     count += 1
-# i = 0
-# while i < N:
-#     ind = rule.find('shiny gold')
-
-
-# print(bags_set)
-print("Count: ", count)
-
+    raw_data = fp.read()
+data = raw_data.replace("\n","")
+# print(data)
+int_0 = 0
+n = len(data)
+while True:
+    int_1 = data.find('shiny gold',int_0, n)
+    k = len('shiny gold')
+    if int_1 != -1:
+        # print('found it at i = ', int_1)
+        #search for '.' in the right side to find where the rule ends
+        end = int_1
+        while data[end] != '.':
+            end += 1
+        #search for '.' in the left side to find where the rule starts
+        st = int_1
+        while data[st] != '.':
+            st -= 1
+        print("sentence starts at: ", st, " and ends at: ", end)
+        print(data[st:end])
+    if int_1 == int_0 or int_1 == -1:
+        break
+    int_0 = int_1 + k
