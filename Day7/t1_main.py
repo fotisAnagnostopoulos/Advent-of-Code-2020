@@ -13,7 +13,6 @@ int_0 = 0
 j = 0
 ##This loop runs on the bags containing the shiny gold bag (col_list), either directly or within other bags.
 ## Essentially, "jumps" from bag type to bag type
-work = True
 while j < len(col_list):
     ## the current bag type to be searched
     color = col_list[j]
